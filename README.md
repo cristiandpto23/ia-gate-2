@@ -1,4 +1,4 @@
-# Proyecto IA (GATE 1)
+# Proyecto IA (GATE 2)
 
 Aplicación de consola en Python que envía preguntas a la API de Gemini y muestra una respuesta breve en formato JSON, con categoría y nivel de confianza.
 
