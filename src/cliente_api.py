@@ -1,9 +1,5 @@
-import json
 import os
-import re
-import time
-from collections.abc import Callable
-from typing import Any
+from typing import Any, Literal
 
 import requests
 from dotenv import load_dotenv
@@ -12,20 +8,35 @@ load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
+TipoModelo = Literal["gemini-3.5-flash-lite", "gemini-3.8-flash"] 
+modelo: TipoModelo = "gemini-3.5-flash-lite"
+
+url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent?key={GEMINI_API_KEY}"
+
+headers = {"Content-Type": "application/json"}
+
+"""
 SYSTEM_INSTRUCTION_DEFAULT = (
     "Responde únicamente con un objeto JSON válido, sin texto adicional "
     "y sin usar bloques de markdown. El JSON debe tener exactamente estas "
     "claves: 'categoria' (string), 'confianza' (número entre 0 y 1), 'respuesta' (string). "
     "respuesta: (string) en solo 1 a 5 palabras, sin saltos de línea ni comillas dobles."
 )
+"""
 
+SYSTEM_INSTRUCTION_DEFAULT = (
+    "Eres un asistente técnico útil y ultra conciso. "
+    "Tu salida debe ser exclusivamente texto plano crudo (raw plain text). "
+    "Prohibido usar cualquier símbolo de formato Markdown: no uses asteriscos (** o *),"
+    "ni almohadillas (#), ni guiones (-), ni comillas (\"), ni acentos (`). "
+    "Tu respuesta debe tener entre 1 y 5 palabras en una sola línea continua."
+)
 
 def armar_peticion(
     pregunta: str,
     system_instruction: str | None = None,
-    modelo: str = "gemini-3.5-flash-lite",
     response_schema: dict | None = None,
-):
+) -> dict:
     pregunta = pregunta.strip()
     if not pregunta:
         raise ValueError("La pregunta no puede estar vacía.")
@@ -36,16 +47,12 @@ def armar_peticion(
     if system_instruction is None:
         system_instruction = SYSTEM_INSTRUCTION_DEFAULT
 
-    # Seguridad extra si alguien pasa modelo=None
-    if not modelo:
-        modelo = "gemini-2.5-flash"
-
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent?key={GEMINI_API_KEY}"
-
     body = {
-        "systemInstruction": {"parts": [{"text": system_instruction}]},
         "contents": [{"parts": [{"text": pregunta}]}],
     }
+    
+    if system_instruction:
+        body["systemInstruction"] = {"parts": [{"text": system_instruction}]}
 
     if response_schema is not None:
         body["generationConfig"] = {
@@ -53,12 +60,11 @@ def armar_peticion(
             "responseSchema": response_schema,
         }
 
-    return url, body
+    return body
 
-def enviar_peticion(url: str, cuerpo: dict[str, Any]) -> dict:
-    headers = {"Content-Type": "application/json"}
+def enviar_peticion(cuerpo: dict[str, Any]) -> dict:
     try:
-        respuesta = requests.post(url, json=cuerpo, headers=headers, timeout=15)
+        respuesta = requests.post(url, json=cuerpo, headers=headers, timeout=10)
     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
         raise TimeoutError("No se pudo contactar al proveedor. Puede ser momentáneo.")
 
@@ -79,16 +85,5 @@ def extraer_texto(datos: dict) -> str:
         raise RuntimeError("La respuesta no contiene texto generado en la estructura esperada.")
 
 
-def con_reintento(
-    funcion: Callable[[], Any],
-    intentos: int = 3,
-    espera_segundos: int = 2,
-) -> Any:
-    for intento in range(1, intentos + 1):
-        try:
-            return funcion()
-        except TimeoutError:
-            if intento == intentos:
-                raise
-            print(f"Intento {intento} de {intentos} falló por límite de uso. Reintentando...")
-            time.sleep(espera_segundos)
+
+
