@@ -7,12 +7,23 @@ certifi==2026.7.22
     # via requests
 charset-normalizer==3.5.2
     # via requests
+colorama==0.4.6 ; sys_platform == 'win32'
+    # via pytest
 idna==3.20
     # via requests
+iniconfig==2.3.1
+    # via pytest
+packaging==26.3
+    # via pytest
+pluggy==1.7.0
+    # via pytest
 pydantic==2.14.1
     # via proyecto-ia
 pydantic-core==2.50.1
     # via pydantic
+pygments==2.21.0
+    # via pytest
+pytest==9.2.0
 python-dotenv==1.2.4
     # via proyecto-ia
 requests==2.34.2
