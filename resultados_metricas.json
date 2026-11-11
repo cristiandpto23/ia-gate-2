@@ -1,0 +1,162 @@
+[
+  {
+    "consulta": "¿Cuál es la capital de Francia?",
+    "referencia": "La capital de Francia es París.",
+    "respuesta": "La capital es Paris",
+    "precision": 0.75,
+    "cobertura": 0.5,
+    "f1": 0.6
+  },
+  {
+    "consulta": "¿En qué año se lanzó Python por primera vez?",
+    "referencia": "Python fue lanzado por primera vez en 1991 por Guido van Rossum.",
+    "respuesta": "Mil novecientos noventa y uno",
+    "precision": 0.0,
+    "cobertura": 0.0,
+    "f1": 0.0
+  },
+  {
+    "consulta": "¿Qué gas respiran los seres humanos para vivir?",
+    "referencia": "Los seres humanos respiran oxígeno para vivir.",
+    "respuesta": "Oxigeno",
+    "precision": 0.0,
+    "cobertura": 0.0,
+    "f1": 0.0
+  },
+  {
+    "consulta": "¿Cuál es el planeta más grande del sistema solar?",
+    "referencia": "Júpiter es el planeta más grande del sistema solar.",
+    "respuesta": "Jupiter",
+    "precision": 0.0,
+    "cobertura": 0.0,
+    "f1": 0.0
+  },
+  {
+    "consulta": "¿Quién escribió Don Quijote de la Mancha?",
+    "referencia": "Don Quijote de la Mancha fue escrito por Miguel de Cervantes.",
+    "respuesta": "Miguel de Cervantes Saavedra",
+    "precision": 0.75,
+    "cobertura": 0.2727,
+    "f1": 0.4
+  },
+  {
+    "consulta": "¿Cuál es la fórmula química del agua?",
+    "referencia": "La fórmula química del agua es H2O.",
+    "respuesta": "H2O",
+    "precision": 1.0,
+    "cobertura": 0.1429,
+    "f1": 0.25
+  },
+  {
+    "consulta": "¿Cuántos días tiene un año bisiesto?",
+    "referencia": "Un año bisiesto tiene 366 días.",
+    "respuesta": "Trescientos sesenta y seis dias",
+    "precision": 0.0,
+    "cobertura": 0.0,
+    "f1": 0.0
+  },
+  {
+    "consulta": "¿Qué instrumento mide la temperatura?",
+    "referencia": "El instrumento que mide la temperatura es el termómetro.",
+    "respuesta": "Termometro",
+    "precision": 0.0,
+    "cobertura": 0.0,
+    "f1": 0.0
+  },
+  {
+    "consulta": "¿Cuál es el océano más grande del mundo?",
+    "referencia": "El océano más grande del mundo es el océano Pacífico.",
+    "respuesta": "Oceano Pacifico",
+    "precision": 0.0,
+    "cobertura": 0.0,
+    "f1": 0.0
+  },
+  {
+    "consulta": "¿En qué continente está Egipto?",
+    "referencia": "Egipto está ubicado principalmente en el continente africano.",
+    "respuesta": "Africa y Asia",
+    "precision": 0.0,
+    "cobertura": 0.0,
+    "f1": 0.0
+  },
+  {
+    "consulta": "¿Qué idioma oficial se habla en Brasil?",
+    "referencia": "El idioma oficial de Brasil es el portugués.",
+    "respuesta": "El idioma oficial de Brasil es el portugués.",
+    "precision": 1.0,
+    "cobertura": 1.0,
+    "f1": 1.0
+  },
+  {
+    "consulta": "¿Cuál es el metal más abundante en la corteza terrestre?",
+    "referencia": "El aluminio es el metal más abundante en la corteza terrestre.",
+    "respuesta": "El metal mas abundante es el aluminio",
+    "precision": 0.8571,
+    "cobertura": 0.5455,
+    "f1": 0.6667
+  },
+  {
+    "consulta": "¿Quién pintó la Mona Lisa?",
+    "referencia": "La Mona Lisa fue pintada por Leonardo da Vinci.",
+    "respuesta": "Leonardo da Vinci",
+    "precision": 1.0,
+    "cobertura": 0.3333,
+    "f1": 0.5
+  },
+  {
+    "consulta": "¿Cuántos lados tiene un hexágono?",
+    "referencia": "Un hexágono tiene 6 lados.",
+    "respuesta": "Seis lados tiene un hexágono",
+    "precision": 0.8,
+    "cobertura": 0.8,
+    "f1": 0.8
+  },
+  {
+    "consulta": "¿Cuál es la moneda oficial de Japón?",
+    "referencia": "La moneda oficial de Japón es el yen.",
+    "respuesta": "El yen japonés",
+    "precision": 0.6667,
+    "cobertura": 0.25,
+    "f1": 0.3636
+  },
+  {
+    "consulta": "¿Qué órgano del cuerpo humano bombea la sangre?",
+    "referencia": "El corazón es el órgano encargado de bombear la sangre.",
+    "respuesta": "El corazon bombea sangre",
+    "precision": 0.5,
+    "cobertura": 0.2,
+    "f1": 0.2857
+  },
+  {
+    "consulta": "¿Cuál es la velocidad de la luz en el vacío aproximadamente?",
+    "referencia": "La velocidad de la luz en el vacío es aproximadamente 300000 km por segundo.",
+    "respuesta": "trescientos mil kilometros por segundo",
+    "precision": 0.4,
+    "cobertura": 0.1429,
+    "f1": 0.2105
+  },
+  {
+    "consulta": "¿Cuál es el río más largo del mundo?",
+    "referencia": "El río más largo del mundo es el río Amazonas.",
+    "respuesta": "El rio Nilo",
+    "precision": 0.3333,
+    "cobertura": 0.1,
+    "f1": 0.1538
+  },
+  {
+    "consulta": "¿Qué elemento tiene el símbolo químico Au?",
+    "referencia": "El símbolo químico Au corresponde al oro.",
+    "respuesta": "Oro",
+    "precision": 1.0,
+    "cobertura": 0.1429,
+    "f1": 0.25
+  },
+  {
+    "consulta": "¿Cuántos minutos tiene una hora?",
+    "referencia": "Una hora tiene exactamente 60 minutos.",
+    "respuesta": "Sesenta minutos exactos.",
+    "precision": 0.3333,
+    "cobertura": 0.1667,
+    "f1": 0.2222
+  }
+]
